@@ -102,77 +102,6 @@ xde_LIBS += \
 -l$${XDE_NAME} \
 
 ########################################################################
-# medusaxde
-MEDUSAXDE_NAME = medusaxde
-MEDUSAXDE_SOURCE = source/$${MEDUSAXDE_NAME}
-
-MEDUSAXDE_PKG = $${THIS_PKG}
-MEDUSAXDE_PRJ = $${MEDUSAXDE_PKG}
-MEDUSAXDE_SRC = $${MEDUSAXDE_PKG}/$${MEDUSAXDE_SOURCE}
-MEDUSAXDE_LIB = $${XDE_LIB}
-
-# medusaxde INCLUDEPATH
-#
-medusaxde_INCLUDEPATH += \
-$${xde_INCLUDEPATH} \
-$${MEDUSAXDE_SRC}/clib/clibc/clibxml2/clibxslt \
-$${MEDUSAXDE_SRC}/clib/cxml/cxslt \
-$${MEDUSAXDE_SRC}/clib/cxml \
-$${MEDUSAXDE_SRC}/clib/cxttp/chttp/ccgi \
-$${MEDUSAXDE_SRC}/clib/cxttp/chttp \
-$${MEDUSAXDE_SRC}/clib/cxttp \
-$${MEDUSAXDE_SRC}/clib/cos/cnetwork \
-$${MEDUSAXDE_SRC}/clib/cos \
-$${MEDUSAXDE_SRC}/clib/cbase \
-$${MEDUSAXDE_SRC}/clib/cplatform \
-$${MEDUSAXDE_SRC}/clib \
-$${MEDUSAXDE_SRC} \
-
-# medusaxde DEFINES
-#
-CONFIG(debug, debug|release) {
-medusaxde_DEFINES += DEBUG_BUILD
-} else {
-medusaxde_DEFINES += RELEASE_BUILD
-}
-
-# medusaxde LIBS
-#
-medusaxde_LIBS += \
--L$${MEDUSAXDE_LIB}/lib$${MEDUSAXDE_NAME} \
--l$${MEDUSAXDE_NAME} \
-$${xde_LIBS} \
-
-########################################################################
-# medusade
-MEDUSADE_NAME = medusade
-MEDUSADE_SOURCE = source/$${MEDUSADE_NAME}
-
-MEDUSADE_PKG = $${THIS_PKG}
-MEDUSADE_PRJ = $${MEDUSADE_PKG}
-MEDUSADE_SRC = $${MEDUSADE_PKG}/$${MEDUSADE_SOURCE}
-MEDUSADE_LIB = $${XDE_LIB}
-
-# medusade INCLUDEPATH
-#
-medusade_INCLUDEPATH += \
-$${MEDUSADE_SRC} \
-$${xde_INCLUDEPATH} \
-
-# medusade DEFINES
-#
-CONFIG(debug, debug|release) {
-medusade_DEFINES += DEBUG_BUILD
-} else {
-medusade_DEFINES += RELEASE_BUILD
-}
-
-# medusade LIBS
-#
-medusade_LIBS += \
-$${xde_LIBS} \
-
-########################################################################
 # xde crypto HEADERS
 #
 xde_crypto_HEADERS += \
@@ -270,5 +199,110 @@ $${XDE_SRC}/clib/ct/ctconditionalfunctions.cxx \
 $${XDE_SRC}/clib/ct/ctstringfunctions.cxx \
 $${xde_t_string_function_SOURCES} \
 $${xde_t_reflect_function_SOURCES} \
+
+########################################################################
+# medusaxde
+MEDUSAXDE_NAME = medusaxde
+MEDUSAXDE_SOURCE = source/$${MEDUSAXDE_NAME}
+
+MEDUSAXDE_PKG = $${THIS_PKG}
+MEDUSAXDE_PRJ = $${MEDUSAXDE_PKG}
+MEDUSAXDE_SRC = $${MEDUSAXDE_PKG}/$${MEDUSAXDE_SOURCE}
+MEDUSAXDE_LIB = $${XDE_LIB}
+
+# medusaxde INCLUDEPATH
+#
+medusaxde_INCLUDEPATH += \
+$${xde_INCLUDEPATH} \
+$${MEDUSAXDE_SRC}/clib/clibc/clibxml2/clibxslt \
+$${MEDUSAXDE_SRC}/clib/cxml/cxslt \
+$${MEDUSAXDE_SRC}/clib/cxml \
+$${MEDUSAXDE_SRC}/clib/cxttp/chttp/ccgi \
+$${MEDUSAXDE_SRC}/clib/cxttp/chttp \
+$${MEDUSAXDE_SRC}/clib/cxttp \
+$${MEDUSAXDE_SRC}/clib/cos/cnetwork \
+$${MEDUSAXDE_SRC}/clib/cos \
+$${MEDUSAXDE_SRC}/clib/cbase \
+$${MEDUSAXDE_SRC}/clib/cplatform \
+$${MEDUSAXDE_SRC}/clib \
+$${MEDUSAXDE_SRC} \
+
+# medusaxde DEFINES
+#
+CONFIG(debug, debug|release) {
+medusaxde_DEFINES += DEBUG_BUILD
+} else {
+medusaxde_DEFINES += RELEASE_BUILD
+}
+
+# medusaxde LIBS
+#
+medusaxde_LIBS += \
+-L$${MEDUSAXDE_LIB}/lib$${MEDUSAXDE_NAME} \
+-l$${MEDUSAXDE_NAME} \
+$${xde_LIBS} \
+
+########################################################################
+# medusade
+MEDUSADE_NAME = medusade
+MEDUSADE_SOURCE = source/$${MEDUSADE_NAME}
+
+MEDUSADE_PKG = $${THIS_PKG}
+MEDUSADE_PRJ = $${MEDUSADE_PKG}
+MEDUSADE_SRC = $${MEDUSADE_PKG}/$${MEDUSADE_SOURCE}
+MEDUSADE_LIB = $${XDE_LIB}
+
+# medusade INCLUDEPATH
+#
+medusade_INCLUDEPATH += \
+$${MEDUSADE_SRC} \
+$${xde_INCLUDEPATH} \
+
+# medusade DEFINES
+#
+CONFIG(debug, debug|release) {
+medusade_DEFINES += DEBUG_BUILD
+} else {
+medusade_DEFINES += RELEASE_BUILD
+}
+
+# medusade LIBS
+#
+medusade_LIBS += \
+$${xde_LIBS} \
+
+########################################################################
+# evx
+EVX_NAME = ev
+XEV_NAME = x$${EVX_NAME}
+EVX_SOURCE = source/$${XEV_NAME}
+
+EVX_PKG = ../../../../..
+EVX_BLD = ../..
+
+EVX_PRJ = $${EVX_PKG}
+EVX_BIN = $${EVX_BLD}/bin
+EVX_LIB = $${EVX_BLD}/lib
+EVX_SRC = $${EVX_PKG}/$${EVX_SOURCE}
+
+# evx INCLUDEPATH
+#
+evx_INCLUDEPATH += \
+$${EVX_SRC}/evc \
+$${EVX_SRC}/os/evdebug \
+$${EVX_SRC}/os/evx \
+$${EVX_SRC}/os \
+$${EVX_SRC}/base \
+$${EVX_SRC} \
+
+# evx DEFINES
+#
+evx_DEFINES += \
+
+# evx LIBS
+#
+evx_LIBS += \
+-L$${EVX_LIB}/lib$${EVX_NAME} \
+-l$${EVX_NAME} \
 
 ########################################################################

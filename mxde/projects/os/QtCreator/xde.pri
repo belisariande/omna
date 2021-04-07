@@ -123,3 +123,32 @@ medusaxde_LIBS += \
 -lrt
 } else {
 } # contains(XDE_OS,linux)
+
+########################################################################
+# evx
+
+EVX_OS = $${XDE_OS}
+EVX_BUILD = $${XDE_BUILD}
+
+# evx INCLUDEPATH
+#
+evx_INCLUDEPATH += \
+
+# evx DEFINES
+#
+evx_DEFINES += \
+
+# evx LIBS
+#
+evx_LIBS += \
+$${build_evx_LIBS} \
+-lpthread \
+-ldl \
+
+contains(EVX_OS,linux) {
+evx_LIBS += \
+-lrt
+} else {
+}
+
+########################################################################
