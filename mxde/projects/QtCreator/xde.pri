@@ -288,6 +288,11 @@ EVX_SRC = $${EVX_PKG}/$${EVX_SOURCE}
 # evx INCLUDEPATH
 #
 evx_INCLUDEPATH += \
+$${EVX_SRC}/ev2c/ev2crypto \
+$${EVX_SRC}/ev2c/crypto \
+$${EVX_SRC}/ev2c/mpint/bn \
+$${EVX_SRC}/ev2c \
+$${EVX_SRC}/evcrypto \
 $${EVX_SRC}/evc \
 $${EVX_SRC}/os/evdebug \
 $${EVX_SRC}/os/evx \
@@ -304,5 +309,14 @@ evx_DEFINES += \
 evx_LIBS += \
 -L$${EVX_LIB}/lib$${EVX_NAME} \
 -l$${EVX_NAME} \
+
+# ev2crypto LIBS
+#
+ev2crypto_LIBS += \
+-L$${EVX_LIB}/lib$${EVX_NAME}crypto \
+-l$${EVX_NAME}crypto \
+-L$${EVX_LIB}/lib$${EVX_NAME}2crypto \
+-l$${EVX_NAME}2crypto \
+$${evx_LIBS} \
 
 ########################################################################
