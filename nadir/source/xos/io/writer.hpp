@@ -102,8 +102,26 @@ public:
 
     typedef typename implements::what_t what_t;
     typedef typename implements::sized_t sized_t;
+    typedef typename implements::sized_t char_t;
     typedef typename implements::endof_t endof_t;
     static const endof_t endof = implements::endof;
+
+    /// writeln
+    virtual ssize_t writeln(const what_t* out, size_t length) {
+        ssize_t count = 0, amount = 0;
+        if (0 <= (amount = this->write(out, length))) {
+            count += amount;
+            if (0 <= (amount = this->writeln())) {
+                count += amount;
+            }
+        }
+        return count;
+    }
+    virtual ssize_t writeln() {
+        const char_t ln = ((char_t)'\n');
+        ssize_t count = this->write(&ln, 1);
+        return count;
+    }
 
     /// writex...
     virtual ssize_t writexln(const void* out, size_t length, bool upper_case = false) {
